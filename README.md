@@ -1,6 +1,6 @@
-# FormGenerator — Vue 3 генератор форм по JSON-схеме
+# FormGenerator - Vue 3 генератор форм по JSON-схеме
 
-Тестовое задание  на позицию фронтендер-стажер в Студию Артемия Лебедева, 2026. Vue 3 компонент `FormGenerator`, который строит форму по переданной JSON-схеме. Поддерживает три типа полей (text/email/password, select, checkbox), валидацию и реактивный `v-model`.
+Тестовое задание на позицию фронтендер-стажер в Студию Артемия Лебедева, 2026. Vue 3 компонент `FormGenerator`, который строит форму по переданной JSON-схеме. Поддерживает три типа полей (text/email/password, select, checkbox), валидацию и реактивный `v-model`.
 
 ```vue
 <FormGenerator :schema="formSchema" v-model="formData" />

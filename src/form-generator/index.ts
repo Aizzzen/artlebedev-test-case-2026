@@ -13,4 +13,4 @@ export type {
   TextFieldType,
 } from './types.ts';
 
-export { defaultValueFor, validateField } from './utils/validation.ts';
+export { defaultValueFor, validateField } from './utils/validation';

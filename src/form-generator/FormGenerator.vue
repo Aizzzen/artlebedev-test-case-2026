@@ -9,7 +9,7 @@ import type {
   SelectFieldSchema,
   TextFieldSchema,
 } from './types';
-import { defaultValueFor, validateField } from './utils/validation.ts';
+import { defaultValueFor, validateField } from './utils/validation';
 import TextField from './fields/TextField.vue';
 import SelectField from './fields/SelectField.vue';
 import CheckboxField from './fields/CheckboxField.vue';

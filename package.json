@@ -1,9 +1,9 @@
 {
-  "name": "lebedev-autoform",
+  "name": "form-generator",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Vue 3 AutoForm component that builds forms from a JSON schema",
+  "description": "Vue 3 FormGenerator component that builds forms from a JSON schema",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",

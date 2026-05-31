@@ -36,7 +36,7 @@ function handleSubmit(data: FormData) {
 
     <main class="demo__main">
       <aside class="demo__sidebar">
-        <h2 class="demo__sidebar-title">Примеры механик</h2>
+        <h2 class="demo__sidebar-title">Примеры сценариев</h2>
         <ul class="demo__preset-list">
           <li v-for="preset in presets" :key="preset.id">
             <button
