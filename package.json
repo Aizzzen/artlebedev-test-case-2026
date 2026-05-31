@@ -1,0 +1,31 @@
+{
+  "name": "lebedev-autoform",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Vue 3 AutoForm component that builds forms from a JSON schema",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --host",
+    "lint": "eslint . --ext .ts,.vue --fix",
+    "format": "prettier --write \"src/**/*.{ts,vue,scss}\"",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vue": "^9.32.0",
+    "prettier": "^3.4.2",
+    "sass-embedded": "^1.83.1",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.7",
+    "vue-tsc": "^2.2.0"
+  }
+}
