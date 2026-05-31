@@ -1,25 +1,26 @@
-# AutoForm — Vue 3 генератор форм по JSON-схеме
+# FormGenerator — Vue 3 генератор форм по JSON-схеме
 
-Тестовое задание для студии Артемия Лебедева, 2026. Vue 3 компонент `FormGenerator`, который строит форму по переданной JSON-схеме. Поддерживает три типа полей (text/email/password, select, checkbox), валидацию и реактивный `v-model`.
+Тестовое задание  на позицию фронтендер-стажер в Студию Артемия Лебедева, 2026. Vue 3 компонент `FormGenerator`, который строит форму по переданной JSON-схеме. Поддерживает три типа полей (text/email/password, select, checkbox), валидацию и реактивный `v-model`.
 
 ```vue
 <FormGenerator :schema="formSchema" v-model="formData" />
 ```
 
-## Что внутри
+## Стек
 
 - Vue 3 + Composition API + `<script setup>`
 - TypeScript (strict)
 - Scoped SCSS, без UI-библиотек
 - Vite, ESLint, Prettier
+- Dockerfile — для удобства запуска
 
 ## Перенос в другой проект
 
-Компонент самодостаточен — лежит в одной папке `src/auto-form/`. Чтобы использовать в другом проекте:
+Компонент самодостаточен — лежит в одной папке `src/form-generator/`. Чтобы использовать его в другом проекте:
 
-1. Скопировать папку `src/auto-form/` в свой `src/`.
+1. Скопировать папку `src/form-generator/` в свой `src/`.
 2. Установить peer-зависимости: `npm i vue sass-embedded`.
-3. Импортировать: `import { FormGenerator } from './auto-form';`
+3. Импортировать: `import { FormGenerator } from './form-generator';`
 
 ## Поддерживаемые поля
 
@@ -31,7 +32,7 @@
 | `select`   | `options: string[]` или `{label, value}[]`, `placeholder`             |
 | `checkbox` | `required` означает обязательное согласие                             |
 
-Общие свойства: `label`, `model`, `required`, `help`.
+Общие свойства любого поля: `label`, `model`, `required`, `help`.
 
 ## Пример схемы
 
@@ -58,25 +59,36 @@ const schema = {
 - `pattern` — регулярное выражение; сообщение через `patternMessage`
 - `type: 'email'` — проверка формата встроена
 
-## Структура
+## Структура проекта
 
 ```
 src/
-├── auto-form/                  ← портативный компонент
-│   ├── index.ts                публичный API
+├── form-generator/             ← компонент
+│   ├── index.ts                
 │   ├── FormGenerator.vue
 │   ├── types.ts
 │   ├── fields/
-│   ├── composables/
+│   │   ├── TextField.vue
+│   │   ├── SelectField.vue
+│   │   └── CheckboxField.vue
+│   ├── utils/
+│   │   └── validation.ts
 │   └── styles/
+│       └── _tokens.scss
 └── demo/                       ← демо-страница (не часть компонента)
     ├── App.vue
+    ├── examples.ts
+    ├── demo.scss
     └── main.ts
 ```
 
-## Локальный запуск
+---
 
-Нужен Node.js 20+ и npm.
+## Запуск
+
+По ТЗ требовался только Vue компонент. Чтобы ревьюер мог быстро посмотреть демо без возни с окружением я добавил два способа запуска.
+
+### Локально (через npm)
 
 ```bash
 npm install
@@ -94,3 +106,12 @@ npm run lint        # ESLint --fix
 npm run format      # Prettier
 npm run type-check  # vue-tsc без эмита
 ```
+
+### Через Docker
+
+```bash
+docker build -t artlebedev-test-case-2026 .
+docker run --rm -p 8080:80 artlebedev-test-case-2026
+```
+
+Откройте <http://localhost:8080>.
